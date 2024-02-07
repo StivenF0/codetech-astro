@@ -1,0 +1,22 @@
+---
+import Card from "./Card.astro";
+
+type card = {
+  id: number;
+  title: string;
+  description: string;
+  content: string;
+}
+
+const response = await fetch("http://127.0.0.1:4321/api/posts")
+const cards: card[] = await response.json()
+
+---
+
+<div class="border-x-2 border-slate-500 max-w-[800px] w-full h-4 flex-1 my-4 px-2 flex flex-col gap-2">
+  {
+    cards.map((card) =>
+      <Card {...card}/>
+    )
+  }
+</div>
