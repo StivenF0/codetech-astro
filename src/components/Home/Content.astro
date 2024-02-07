@@ -2,7 +2,14 @@
 import Card from "./Card.astro";
 import type { PostType } from "../../ts/types.ts";
 
-const response = await fetch("http://localhost:4321/api/getPosts")
+const devmode = import.meta.env.DEV
+
+const url = "/api/getPosts"
+const response = await fetch(
+  devmode
+    ? "http://localhost:4321" + url
+    : import.meta.env.PROD_ADDRESS + url
+)
 const cards: PostType[] = await response.json()
 ---
 
