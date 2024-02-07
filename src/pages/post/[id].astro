@@ -6,14 +6,12 @@ import type { PostType } from "../../ts/types";
 
 const { id } = Astro.params;
 
-const url = "/api/getPost?id="
+const url = "/api/getPost?id=";
 const response = await fetch(
-  import.meta.env.DEV
-  ? "http://localhost:4321" + url + id
-  : import.meta.env.VERCEL_URL + url + id
-)
+  (import.meta.env.URL || "http://localhost:4321") + url + id
+);
 const post: PostType = await response.json();
-  
+
 const { id: _, ...contents } = post;
 ---
 
