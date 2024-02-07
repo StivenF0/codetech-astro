@@ -1,0 +1,19 @@
+---
+import Content from "../../components/Post/Content.astro";
+import Header from "../../layouts/Header.astro";
+import Layout from "../../layouts/Layout.astro";
+import type { PostType } from "../../ts/types";
+
+const { id } = Astro.params;
+const response = await fetch(`http://localhost:4321/api/getPost?id=${id}`);
+const post: PostType = await response.json();
+
+const { id: _, ...contents } = post;
+---
+
+<Layout title={post.title}>
+  <main class="w-full min-h-screen flex flex-col items-center">
+    <Header />
+    <Content {...contents} />
+  </main>
+</Layout>

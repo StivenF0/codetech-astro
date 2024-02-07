@@ -1,3 +1,7 @@
+# About the project
+
+This is just a simple blog project to learn the basics from Astro Framework.
+
 # Astro Starter Kit: Basics
 
 ```sh
