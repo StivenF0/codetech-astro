@@ -8,7 +8,7 @@ type card = {
   content: string;
 }
 
-const response = await fetch("http://127.0.0.1:4321/api/posts")
+const response = await fetch("http://127.0.0.1:4321/api/getPosts")
 const cards: card[] = await response.json()
 
 ---

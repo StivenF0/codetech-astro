@@ -1,6 +1,4 @@
-import type { APIRoute } from "astro";
-
-const posts = [
+export const posts = [
   {
     "id": 1,
     "title": "The Art of Programming",
@@ -50,11 +48,3 @@ const posts = [
     "content": "Nature is a masterpiece, and this post takes you on a visual journey through stunning landscapes and breathtaking natural beauty. Experience the serenity of forests, the majesty of mountains, and the tranquility of lakes in this photo exploration of the beauty of nature."
   }
 ]
-
-
-export const GET: APIRoute = () => {
-  return new Response(
-    JSON.stringify(posts),
-    { status: 200 },
-  )
-}
